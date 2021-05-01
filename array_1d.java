@@ -23,9 +23,9 @@ public class array_1d<T extends Comparable<T>>
      */
     array_1d()
     {
-        arr = (T[])new Comparable[10];
-        ctr = 0;
         size = 10;
+        arr = (T[])new Comparable[size];
+        ctr = 0;
     }
     /**
      * This constructor for the array_1d class will initialize the generic array with the specified size, n.
@@ -33,9 +33,9 @@ public class array_1d<T extends Comparable<T>>
      */
     array_1d(int n)
     {
-        arr = (T[])new Comparable[n];
-        ctr = 0;
         size = n;
+        arr = (T[])new Comparable[size];
+        ctr = 0;
     }
     /**
      * This method returns the element at the specified index position, n.
@@ -90,5 +90,12 @@ public class array_1d<T extends Comparable<T>>
     int total_elements()
     {
         return ctr;
+    }
+    /**
+     * This method returns the total size/capacity of the array that was originally initialized through the constructor.
+     */
+    int total_size()
+    {
+        return size;
     }
 }
