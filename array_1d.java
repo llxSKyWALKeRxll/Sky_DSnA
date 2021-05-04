@@ -63,8 +63,16 @@ public class array_1d<T extends Comparable<T>>
      */
     void add_element_back(T n)
     {
-        arr[ctr] = n;
-        ++ctr;
+        if(ctr >= size)
+        {
+            System.out.println("The array is already full!");
+            return;
+        }
+        else
+        {
+            arr[ctr] = n;
+            ++ctr;
+        }
     }
     /**
      * This method will add the value that has been passed as an argument at the front of the array, 
@@ -73,9 +81,17 @@ public class array_1d<T extends Comparable<T>>
      */
     void add_element_front(T n)
     {
-        ++ctr;
-        for(int i=ctr; i>0; i--) arr[i] = arr[i-1];
-        arr[0] = n;
+        if(ctr >= size)
+        {
+            System.out.println("The array is already full!");
+            return;
+        }
+        else
+        {
+            ++ctr;
+            for(int i=ctr; i>0; i--) arr[i] = arr[i-1];
+            arr[0] = n;
+        }
     }
     /**
      * This method removes the element which is present at the last index of the array.
@@ -89,8 +105,8 @@ public class array_1d<T extends Comparable<T>>
         }
         else
         {
-        arr[ctr - 1] = null;
-        --ctr;
+            arr[ctr - 1] = null;
+            --ctr;
         }
     }
     /**
@@ -101,9 +117,9 @@ public class array_1d<T extends Comparable<T>>
     {
         if(n < ctr)
         {
-        for(int i=n; i<ctr; i++) arr[i] = arr[i + 1];
-        arr[ctr - 1] = null;
-        --ctr;
+            for(int i=n; i<ctr; i++) arr[i] = arr[i + 1];
+            arr[ctr - 1] = null;
+            --ctr;
         }
         else
         {
@@ -114,7 +130,22 @@ public class array_1d<T extends Comparable<T>>
     /**
      * This method prints all the elements currently present in the array, starting from the first index.
      */
-    void print_all()
+    void print_elements()
+    {
+        if(ctr == 0)
+        {
+            System.out.println("The array is empty!");
+            return;
+        }
+        else
+        {
+            for(int i=0; i<ctr; i++) System.out.println("Element "+(i + 1)+": "+arr[i]);
+        }
+    }
+    /**
+     * This methods prints the entire array, including the null elements.
+     */
+    void print_entire_array()
     {
         for(int i=0; i<size; i++) System.out.println("Element "+(i + 1)+": "+arr[i]);
     }
