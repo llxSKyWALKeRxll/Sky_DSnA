@@ -61,10 +61,10 @@ public class array_1d<T extends Comparable<T>>
      * This method will simply add the value that has been passed as an argument at the back of the array.
      * @param n This value will be added to the array.
      */
-    void add_element(T n)
+    void add_element_back(T n)
     {
         arr[ctr] = n;
-        ctr++;
+        ++ctr;
     }
     /**
      * This method will add the value that has been passed as an argument at the front of the array, 
@@ -78,11 +78,45 @@ public class array_1d<T extends Comparable<T>>
         arr[0] = n;
     }
     /**
+     * This method removes the element which is present at the last index of the array.
+     */
+    void remove_element_back()
+    {
+        if(ctr == 0)
+        {
+            System.out.println("The array is already empty!");
+            return;
+        }
+        else
+        {
+        arr[ctr - 1] = null;
+        --ctr;
+        }
+    }
+    /**
+     * This method removes the element at the specified index from the array. The order of the array is retained.
+     * @param n The element at this index will be removed from the array.
+     */
+    void remove_element_at(int n)
+    {
+        if(n < ctr)
+        {
+        for(int i=n; i<ctr; i++) arr[i] = arr[i + 1];
+        arr[ctr - 1] = null;
+        --ctr;
+        }
+        else
+        {
+            System.out.println("Index is out of bounds! Current elements in array: "+ctr);
+            return;
+        }
+    }
+    /**
      * This method prints all the elements currently present in the array, starting from the first index.
      */
     void print_all()
     {
-        for(int i=0; i<ctr; i++) System.out.println("Element "+(i + 1)+": "+arr[i]);
+        for(int i=0; i<size; i++) System.out.println("Element "+(i + 1)+": "+arr[i]);
     }
     /**
      * This method returns the total no. of elements currently present in the array.
