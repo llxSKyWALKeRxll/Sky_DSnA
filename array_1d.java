@@ -94,6 +94,24 @@ public class array_1d<T extends Comparable<T>>
         }
     }
     /**
+     * This method removes the element that is present at the first index (0) of the array. The original order is retained.
+     */
+    void remove_element_front()
+    {
+        if(ctr<=0)
+        {
+            System.out.println("Array is already empty!");
+            return;
+        }
+        else
+        {
+            --ctr;
+            arr[0] = null;
+            for(int i=0; i<=ctr; i++) arr[i] = arr[i+1];
+            arr[ctr] = null;
+        }
+    }
+    /**
      * This method removes the element which is present at the last index of the array.
      */
     void remove_element_back()
